@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<button id="addData">
+    Add Data</button>
+
+<form action="submitForm">
+    <div>
+        Unbound
+    <input id="requiredField" name="requiredField" data-val="true" data-val-required="Required"
+        type="text" />
+        <span class="field-validation-valid" data-valmsg-for="requiredField" data-valmsg-replace="true"></span>
+    </div>
+    <div id='dataDiv'>
+        <table>
+            <thead>
+                <tr>
+                    <th>Url</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: collect">
+                <tr>
+                    <td>
+                        <a class="launchDialog" data-bind="attr: { url: url() }">Url</a>
+                    </td>
+                    <td>
+                        <input data-bind="value: description, attr: { 'id': position, 'name': position }" 
+                            data-val="true" type="text" required="required"/>
+                        <span class="field-validation-valid" data-bind="attr: { 'data-valmsg-for': position }" 
+                            data-valmsg-replace="true"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <button id="submitButton">Submit</button>
+</form>
+@section Scripts {
+    <script src="../../Scripts/jquery-ui-1.10.2.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+    <script src="../../Scripts/knockout-2.2.1.debug.js" type="text/javascript"></script>
+    <script src="~/Scripts/jqtemplatessample.js"></script>
+}
+
